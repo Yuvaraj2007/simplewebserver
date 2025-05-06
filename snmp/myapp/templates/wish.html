@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='35' font-size='40'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 60px;
+      overflow-y: auto;
+      animation: float 15s linear infinite;
+    }
+
+    @keyframes float {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .password-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .password-popup h2 {
+      color: #e91e63;
+      margin-bottom: 15px;
+    }
+
+    .password-popup input {
+      padding: 10px;
+      width: 80%;
+      border: 2px solid #e91e63;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    .password-popup button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .password-popup button:hover {
+      background-color: #c2185b;
+    }
+
+    .card {
+      display: none;
+      background: #e91e63;
+      color: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      max-width: 650px;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: left;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .card h1 {
+      text-align: center;
+      font-size: 2em;
+      animation: heartbeat 2s infinite;
+    }
+
+    .message {
+      font-size: 1.2em;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="password-popup" id="popup">
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Enter password...">
+    <br>
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <audio id="loveMusic" autoplay loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div class="card" id="mainContent">
+      <h1>To My Dearest Papa 💗❣</h1>
+      <div class="message">
+<!-- Keep your beautiful message here -->
+<!-- The message content has been removed for brevity. -->
+Your lovely message goes here...
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const entered = document.getElementById('password').value;
+      if (entered === 'love123') {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+        document.getElementById('loveMusic').play();
+      } else {
+        alert('Wrong password!');
+      }
+    }
+  </script>
+</body>
+</html>
